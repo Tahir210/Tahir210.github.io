@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Muhammad Tahir - Professional Freelance Portfolio. Specializing in Web & App Development, Custom Form Building, Graphic Branding, AI Media Creation, and Website Maintenance.">
+  <meta name="keywords" content="Muhammad Tahir, Web Dev, App Dev, Form Builder, Graphic Designer, Logo Design, Brochure, Website Maintenance, Pakistan Freelancer">
+  <meta name="author" content="Muhammad Tahir">
+  <title>Muhammad Tahir | Freelance Tech & Creative Services</title>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Animated Ambient Decorative Glows -->
+  <div class="ambient-glow">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Cursor Following Glow Element (Desktop) -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+  <!-- Animated SVG Cat Cursor Follower -->
+  <div class="cursor-cat" id="cursor-cat">
+    <svg id="cat-svg" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Tail -->
+      <path id="cat-tail" d="M27 46 Q38 52 44 48 Q50 44 46 38" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
+      <!-- Body -->
+      <ellipse cx="27" cy="38" rx="12" ry="9" fill="#7c3aed" opacity="0.9"/>
+      <!-- Head -->
+      <circle cx="27" cy="24" r="13" fill="#8b5cf6"/>
+      <!-- Left ear -->
+      <polygon points="15,14 12,4 20,11" fill="#7c3aed"/>
+      <polygon points="16,13 14,7 20,12" fill="#f0abfc" opacity="0.7"/>
+      <!-- Right ear -->
+      <polygon points="39,14 42,4 34,11" fill="#7c3aed"/>
+      <polygon points="38,13 40,7 34,12" fill="#f0abfc" opacity="0.7"/>
+      <!-- Face: Eyes -->
+      <ellipse id="cat-eye-left" cx="22" cy="23" rx="3.5" ry="3.5" fill="#0ea5e9"/>
+      <ellipse id="cat-eye-right" cx="32" cy="23" rx="3.5" ry="3.5" fill="#0ea5e9"/>
+      <!-- Pupils -->
+      <ellipse id="cat-pupil-left" cx="22.5" cy="23.5" rx="1.8" ry="2.2" fill="#0f172a"/>
+      <ellipse id="cat-pupil-right" cx="32.5" cy="23.5" rx="1.8" ry="2.2" fill="#0f172a"/>
+      <!-- Eye shine -->
+      <circle cx="23.5" cy="22" r="0.7" fill="white" opacity="0.9"/>
+      <circle cx="33.5" cy="22" r="0.7" fill="white" opacity="0.9"/>
+      <!-- Nose -->
+      <ellipse cx="27" cy="27.5" rx="1.8" ry="1.2" fill="#f472b6"/>
+      <!-- Mouth -->
+      <path d="M25.5 29 Q27 31 28.5 29" stroke="#f9a8d4" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      <!-- Whiskers left -->
+      <line x1="8" y1="26" x2="20" y2="27" stroke="#c4b5fd" stroke-width="0.9" opacity="0.8"/>
+      <line x1="8" y1="29" x2="20" y2="28.5" stroke="#c4b5fd" stroke-width="0.9" opacity="0.8"/>
+      <!-- Whiskers right -->
+      <line x1="46" y1="26" x2="34" y2="27" stroke="#c4b5fd" stroke-width="0.9" opacity="0.8"/>
+      <line x1="46" y1="29" x2="34" y2="28.5" stroke="#c4b5fd" stroke-width="0.9" opacity="0.8"/>
+      <!-- Blush cheeks -->
+      <ellipse cx="19" cy="28" rx="3" ry="1.8" fill="#f9a8d4" opacity="0.35"/>
+      <ellipse cx="35" cy="28" rx="3" ry="1.8" fill="#f9a8d4" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <!-- Premium Header Navbar -->
+  <header id="header">
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        M.<span>Tahir</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <div class="nav-overlay-logo">M.<span>Tahir</span></div>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Dark backdrop overlay -->
+      <div class="nav-backdrop" id="nav-backdrop"></div>
+
+      <a href="#contact" class="nav-cta">Get a Quote</a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="section">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span></span> Available for Freelance Work
+          </div>
+          <h1 class="hero-title text-gradient">
+            High-Performance Code <span>& Visual Branding</span>
+          </h1>
+          <p class="hero-subtitle">
+            Hi, I'm <strong>Muhammad Tahir</strong>. I build premium web applications, design corporate brand identities, create automated form systems, and edit media to scale your digital presence.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Get a Quote</a>
+            <a href="#portfolio" class="btn btn-secondary">View Work</a>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <!-- Profile Photo inside glowing circle -->
+          <div class="profile-circle-wrap">
+            <div class="profile-circle-gap">
+              <div class="profile-circle">
+                <img src="assets/profile.jpg" alt="Muhammad Tahir" class="profile-img" />
+              </div>
+            </div>
+          </div>
+          <div class="visual-ring-1"></div>
+          <div class="visual-ring-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section (NEW) -->
+  <section id="tech-stack" class="section" style="padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.005);">
+    <div class="container">
+      <div class="stack-grid">
+        <div class="stack-intro">
+          <span class="section-tag" style="text-align: left; margin-bottom: 8px;">My Tooling</span>
+          <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">The Technologies I Use</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Hover over my stack tools to see visual categories, or click to view execution details.</p>
+          
+          <!-- Interactive Tech Detail Box (NEW) -->
+          <div id="tech-details-box" class="glass-panel" style="margin-top: 24px; padding: 24px; transition: all var(--transition-normal);">
+            <h4 id="tech-details-title" style="color: var(--accent); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading);">Select a Tool</h4>
+            <p id="tech-details-desc" style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 0; line-height: 1.5;">Click any tool badge on the right to see how I apply it to deliver high-quality results for your business.</p>
+          </div>
+        </div>
+        
+        <div class="stack-items">
+          <!-- Figma -->
+          <div class="stack-item glass-panel" data-tech="figma">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7c0 1.48.65 2.81 1.68 3.73A3.737 3.737 0 007 14.5c0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.48-.65-2.81-1.68-3.73A3.737 3.737 0 0017 7c0-2.76-2.24-5-5-5zm0 15a2.5 2.5 0 010-5 2.5 2.5 0 010 5zm0-7.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Figma</span>
+          </div>
+          <!-- Photoshop -->
+          <div class="stack-item glass-panel" data-tech="photoshop">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9.55 16.2c-.22.18-.54.27-.97.27H7.13v-6.93h1.61c.42 0 .73.08.93.25s.3.43.3.77c0 .35-.11.62-.33.81s-.54.28-.97.28H7.93v1.39h.64c.39 0 .69.09.89.26s.31.42.31.75c0 .38-.11.67-.32.86c.1.1.1.1.1.1zm6.91-4.08c-.12.44-.33.78-.63 1.02s-.7.36-1.19.36c-.5 0-.91-.12-1.21-.36s-.46-.57-.49-1.02h.85c.03.25.12.45.27.58s.36.19.61.19c.22 0 .39-.06.51-.18s.18-.28.18-.49c0-.18-.06-.32-.19-.44s-.36-.21-.69-.29l-.65-.16c-.47-.11-.81-.29-1.03-.54s-.32-.57-.32-.97c0-.44.15-.79.46-1.04s.72-.38 1.25-.38c.49 0 .88.12 1.16.36s.42.56.44.97h-.82c-.03-.22-.11-.39-.25-.51s-.32-.18-.54-.18c-.2 0-.36.05-.47.16s-.16.24-.16.42c0 .16.06.29.17.39s.34.19.68.27l.63.15c.5.12.87.31 1.1.57s.35.59.35.98c.02.46-.1.82-.22 1.05z"/></svg>
+            <span>Photoshop</span>
+          </div>
+          <!-- Illustrator -->
+          <div class="stack-item glass-panel" data-tech="illustrator">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 16.5H7.72l-.39-1.32H5.66l-.39 1.32H4l1.39-4.5h1.22L9 16.5zm-2.07-2.32L6.44 12.5l-.49 1.68h.98zm4.33 2.32H10.1v-4.5h1.16v4.5zm0-5.18H10.1v-1.12h1.16v1.12zm6.6 5.18h-1.16v-.5c-.25.39-.67.59-1.25.59-.51 0-.91-.16-1.2-.47s-.44-.75-.44-1.31c0-.58.15-1.03.45-1.34s.7-.47 1.2-.47c.56 0 .97.19 1.24.58v-1.32h1.16v4.24zm-2.43-.88c.26 0 .46-.07.6-.21s.21-.36.21-.67v-.71c0-.32-.07-.54-.21-.68s-.34-.21-.6-.21c-.26 0-.46.07-.6.21s-.21.36-.21.68v.71c0 .31.07.54.21.67s.34.21.6.21z"/></svg>
+            <span>Illustrator</span>
+          </div>
+          <!-- JavaScript -->
+          <div class="stack-item glass-panel" data-tech="javascript">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 3h18v18H3V3zm11.75 14.25c0 .35-.15.65-.45.9s-.7.38-1.2.38c-.45 0-.82-.12-1.1-.38s-.42-.55-.42-.88h-.98c0 .58.21 1.05.62 1.4s.95.52 1.62.52c.78 0 1.4-.22 1.88-.65s.72-.98.72-1.65v-6h-1.07v6.16zM18.75 16c0 .7-.25 1.25-.75 1.65s-1.15.6-1.95.6c-.65 0-1.22-.15-1.7-.45s-.78-.72-.9-1.25h.98c.08.32.25.58.52.75s.6.25.98.25c.42 0 .75-.09.98-.28s.35-.44.35-.78c0-.28-.09-.5-.28-.68s-.54-.32-1.05-.45c-.68-.18-1.2-.38-1.58-.6s-.58-.58-.58-1.08c0-.55.22-.98.68-1.28s1.08-.45 1.85-.45c.65 0 1.18.12 1.58.38s.68.6.82 1.02h-.95c-.1-.28-.25-.48-.48-.6s-.52-.18-.88-.18c-.35 0-.62.08-.82.25s-.3.38-.3.62c0 .2.08.35.25.48s.48.22.95.35c.7.18 1.22.38 1.58.6s.55.58.55 1.08z"/></svg>
+            <span>JavaScript</span>
+          </div>
+          <!-- CSS3 -->
+          <div class="stack-item glass-panel" data-tech="css">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M5 2l1.37 18.06L12 22l5.63-1.94L19 2H5zm11.5 5.5h-5.25v2h5.25c-.25 2.5-2.25 3.5-4.5 3.5v2.25c2.75 0 5.75-1.5 6.25-5.75H11.25v-2h5.75l-.5-2z"/></svg>
+            <span>CSS3 & Responsive</span>
+          </div>
+          <!-- AI tools -->
+          <div class="stack-item glass-panel" data-tech="ai">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-3.5h-2V7h2z"/></svg>
+            <span>Generative AI Media</span>
+          </div>
+          <!-- WordPress -->
+          <div class="stack-item glass-panel" data-tech="wordpress">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365.347 0 .687-.02 1.025-.053-.12-.35-.224-.716-.31-1.077l-1.543-4.526a12.936 12.936 0 0 0 .986-2.549zm-8.874 1.701a7.87 7.87 0 0 0 2.27 4.298l3.125-9.061C8.167 9.873 7.84 9.1 7.84 9.1c-.396-.036-.826-.036-.826-.036l-.036.54c.33.036.43.324.43.324.164.43.328.97.43 1.348l1.455 4.26-1.92 5.568A7.857 7.857 0 0 1 3.284 14.49zm12.353-.611c.907-2.698 1.543-5.029 1.543-6.574 0-1.008-.252-1.728-.612-2.268a2.915 2.915 0 0 0-2.304-1.224c-.972 0-1.728.576-1.728.576s.18-.036.216-.036c.9 0 1.62.9 1.62 1.944 0 .972-.54 2.196-.936 3.348l-.756 2.268 1.488 4.34a12.875 12.875 0 0 0 2.469-8.648c0-.75-.12-1.464-.324-2.138L12.368 20.65a7.878 7.878 0 0 0 6.136-6.4c0-.071-.004-.141-.01-.211l-2.857-.36zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            <span>WordPress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid Section (6 Skills) -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Offer</span>
+        <h2 class="section-title">My Creative Tech Services</h2>
+        <p style="color: var(--text-muted);">Highly specialized skills grouped to deliver complete development, design, and automation solutions.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. Web & App Dev -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3 class="service-title">Web & App Development</h3>
+          <p class="service-desc">Custom web apps and mobile applications engineered for high speeds, smooth responsiveness, and secure deployment.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Frontend Development</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile App Solutions</li>
+          </ul>
+        </div>
+
+        <!-- 2. WordPress CMS Development -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          </div>
+          <h3 class="service-title">WordPress Development</h3>
+          <p class="service-desc">Professional WordPress sites, custom themes, Elementor page building, hosting setup, and SEO configuration.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Theme & Page Builder</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> WooCommerce E-Commerce</li>
+          </ul>
+        </div>
+
+        <!-- 3. Form Building & Integrations -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <h3 class="service-title">Interactive Form Building</h3>
+          <p class="service-desc">Creating advanced lead capture forms, online estimators, survey forms, Jotform/Typeform builds, and automated workflows.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Multi-Step Forms</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Form Automations & CRMs</li>
+          </ul>
+        </div>
+
+        <!-- 4. Logo & Branding -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </div>
+          <h3 class="service-title">Logo & Brand Design</h3>
+          <p class="service-desc">Crafting unique vector logos, visual guidelines, and corporate stationery to establish an authentic and memorable brand identity.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Logo & Brand Guidelines</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Business Card Design</li>
+          </ul>
+        </div>
+
+        <!-- 5. Brochure & Print Media -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>
+          </div>
+          <h3 class="service-title">Brochure & Poster Design</h3>
+          <p class="service-desc">Eye-catching brochures, print flyers, marketing banners, and posters engineered to drive high visual conversions.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-fold Brochure Layouts</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Marketing Posters & Banners</li>
+          </ul>
+        </div>
+
+        <!-- 6. Website Maintenance -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <h3 class="service-title">Website Maintenance</h3>
+          <p class="service-desc">Continuous support including performance optimization, weekly backups, security patches, and routine code updates.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bug Fixing & Optimization</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Backups & Security Updates</li>
+          </ul>
+        </div>
+
+        <!-- 7. AI Video & Content -->
+        <div class="service-card glass-panel">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7a5 5 0 0 0-7.75-4.11L12 5.67 8.75 3.39a5 5 0 0 0-8 4v8.5a5 5 0 0 0 8 4l3.25-2.28 3.25 2.28a5 5 0 0 0 8-4z"></path></svg>
+          </div>
+          <h3 class="service-title">AI Video & Media Creation</h3>
+          <p class="service-desc">Designing professional presentations and pitch decks alongside marketing videos generated with AI animations and voiceovers.</p>
+          <ul class="service-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Business Pitch Presentation Decks</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> AI Video Promos & Editing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk-Free Guarantees Section (NEW) -->
+  <section id="guarantees" class="section" style="background: rgba(147, 51, 234, 0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--secondary);">Risk-Free Hiring</span>
+        <h2 class="section-title">Why Clients Choose Me</h2>
+        <p style="color: var(--text-muted);">Making your investment 100% secure with unmatched professional guarantees.</p>
+      </div>
+      
+      <div class="guarantees-grid">
+        <!-- 1. 1-Month Support -->
+        <div class="guarantee-card glass-panel">
+          <div class="guarantee-badge">Guarantee</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            1-Month Free Support
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Every website or application I deploy comes with 30 days of free technical maintenance. I patch bugs, optimize speed, and ensure everything runs perfectly at no extra cost.</p>
+        </div>
+
+        <!-- 2. IP Ownership -->
+        <div class="guarantee-card glass-panel">
+          <div class="guarantee-badge">Guarantee</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            100% Source Files & IP
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">You own everything I build. Upon project completion, you will receive all raw vector shapes (Photoshop/Illustrator), editable design frames (Figma), and fully documented source code repositories.</p>
+        </div>
+
+        <!-- 3. Direct WhatsApp Hotline -->
+        <div class="guarantee-card glass-panel">
+          <div class="guarantee-badge">Guarantee</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Direct WhatsApp Access
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Say goodbye to communication delays. You get direct WhatsApp access to me for quick, daily updates and transparent progress status during our entire project pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Gallery Section (6 Cards, 3 Columns) -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Gallery</span>
+        <h2 class="section-title">My Recent Work</h2>
+        <p style="color: var(--text-muted);">Explore some of my visual designs, custom form engines, websites, and content decks.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="web">Web & Apps</button>
+        <button class="filter-btn" data-filter="design">Branding & Print</button>
+        <button class="filter-btn" data-filter="media">AI & Content</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="portfolio-grid" id="portfolio-grid">
+        <!-- 1. Web Analytics -->
+        <div class="portfolio-card glass-panel" data-category="web">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/web_project.png" alt="SaaS Web Application Dashboard">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">Web Development</span>
+            <h3 class="portfolio-card-title">SaaS Analytics Dashboard</h3>
+            <p class="portfolio-card-desc">A premium SaaS analytics dashboard mockup featuring glassmorphism, responsive grid components, and clean UI styling.</p>
+          </div>
+        </div>
+
+        <!-- WordPress Site -->
+        <div class="portfolio-card glass-panel" data-category="web">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/wordpress_project.png" alt="WordPress Custom Website Design">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">WordPress Dev</span>
+            <h3 class="portfolio-card-title">E-Commerce Brand Portal</h3>
+            <p class="portfolio-card-desc">A premium dark-themed WordPress e-commerce landing page featuring glassmorphic product displays, responsive product grids, and clean layout branding.</p>
+          </div>
+        </div>
+
+        <!-- 2. Logo Design -->
+        <div class="portfolio-card glass-panel" data-category="design">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/logo_project.png" alt="Futuristic Tech Logo Mockup">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">Branding</span>
+            <h3 class="portfolio-card-title">Apex Tech Logo Design</h3>
+            <p class="portfolio-card-desc">Minimalist, geometric vector branding designed for a high-end AI startup. Visualized on a modern executive office wall.</p>
+          </div>
+        </div>
+
+        <!-- 3. Form Builder -->
+        <div class="portfolio-card glass-panel" data-category="web">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/form_project.png" alt="Custom Form Builder Interface">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">Form Building</span>
+            <h3 class="portfolio-card-title">Automated Form Builder</h3>
+            <p class="portfolio-card-desc">Interactive web UI featuring a drag-and-drop form building engine. Clean design, multiple fields, and automation integration.</p>
+          </div>
+        </div>
+
+        <!-- 4. Brochure Design -->
+        <div class="portfolio-card glass-panel" data-category="design">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/brochure_project.png" alt="Corporate Brochure Mockup">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">Print Design</span>
+            <h3 class="portfolio-card-title">Corporate Brochure & Cards</h3>
+            <p class="portfolio-card-desc">Elegant dark-themed company brochures and business cards printed with glowing cyan highlights, laid on a clean office table.</p>
+          </div>
+        </div>
+
+        <!-- 5. AI Video -->
+        <div class="portfolio-card glass-panel" data-category="media">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/ai_video_project.png" alt="AI Video Editing Neural Streams">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">AI Media</span>
+            <h3 class="portfolio-card-title">AI Neural Stream Trailer</h3>
+            <p class="portfolio-card-desc">Highly detailed promotional thumbnail generated and edited for an AI tech video series, blending cybernetic features with code streams.</p>
+          </div>
+        </div>
+
+        <!-- 6. Presentation Deck -->
+        <div class="portfolio-card glass-panel" data-category="media">
+          <div class="portfolio-img-container">
+            <img src="assets/projects/presentation_project.png" alt="Sleek Business Presentation slide deck">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category">Content Decks</span>
+            <h3 class="portfolio-card-title">Apex Business Presentation</h3>
+            <p class="portfolio-card-desc">Professional corporate slide deck mockup featuring clean violet infographics, charts, and clean typography styling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact & About Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-wrapper">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <div>
+            <span class="section-tag" style="text-align: left;">Contact Info</span>
+            <h2 class="info-title">Let's Build Something Great Together</h2>
+            <p class="info-text">Whether you want to order a service or talk about a custom project, send me a message. I usually reply within a couple of hours.</p>
+          </div>
+
+          <div class="contact-details">
+            <!-- Email -->
+            <div class="detail-item glass-panel">
+              <div class="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">Email Me</span>
+                <span class="detail-value"><a href="mailto:tahireee7@gmail.com">tahireee7@gmail.com</a></span>
+              </div>
+            </div>
+
+            <!-- Phone/WhatsApp -->
+            <div class="detail-item glass-panel">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.012 2c-5.506 0-9.988 4.47-9.988 9.954 0 1.76.46 3.475 1.33 4.98L2 22l5.233-1.37a9.887 9.887 0 0 0 4.778 1.23h.005c5.503 0 9.987-4.47 9.987-9.955C22.003 6.47 17.518 2 12.012 2zm6.335 14.242c-.276.772-1.597 1.5-2.203 1.59-.553.08-1.272.145-2.05-.11a12.637 12.637 0 0 1-4.708-2.94 11.587 11.587 0 0 1-2.585-3.872c-.422-.724-.658-1.56-.565-2.433.093-.872.487-1.517.893-1.927.276-.28.59-.447.88-.447l.556.014c.245.006.462-.012.668.482.268.643.916 2.23 1.0 2.398.08.168.12.364.004.596-.11.23-.19.38-.344.56-.15.18-.323.364-.477.56-.168.21-.345.42-.15.756a8.204 8.204 0 0 0 1.543 1.912 7.747 7.747 0 0 0 2.228 1.372c.328.168.525.14.72-.084.197-.224.843-.98.107-1.26a4.8 4.8 0 0 0-.582-.252l-1.57-.756c-.244-.11-.475-.02-.643.21-.183.245-.733.91-.9 1.1-.168.19-.336.21-.664.042a9.585 9.585 0 0 1-2.47-1.527 10.457 10.457 0 0 1-1.706-2.122c-.196-.336-.02-.518.147-.714.152-.18.328-.392.493-.588.164-.196.22-.336.328-.56.11-.224.056-.42-.028-.588l-.756-1.82c-.22-.53-.448-.518-.642-.524h-.54c-.31 0-.812.112-1.238.577a3.528 3.528 0 0 0-1.099 2.583c0 1.63.854 3.208 2.05 4.8a15.225 15.225 0 0 0 6.096 5.385c.984.42 1.75.67 2.35.86 1 .3 1.9.26 2.62.15.8-.12 2.47-1.01 2.8-1.93z"/></svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">WhatsApp</span>
+                <span class="detail-value"><a href="https://wa.me/923146813808" target="_blank" rel="noopener">+92 314 6813808</a></span>
+              </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="detail-item glass-panel">
+              <div class="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">LinkedIn</span>
+                <span class="detail-value"><a href="https://www.linkedin.com/in/muhammad-tahir-2041822b6" target="_blank" rel="noopener">muhammad-tahir-2041822b6</a></span>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="detail-item glass-panel">
+              <div class="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Vehari, Punjab, Pakistan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Panel -->
+        <div class="contact-form-panel glass-panel">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="form-name">Your Name</label>
+              <input type="text" id="form-name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-email">Your Email Address</label>
+              <input type="email" id="form-email" class="form-control" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-service">Required Service</label>
+              <select id="form-service" class="form-control" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="web-app-development">Web & App Development</option>
+                <option value="wordpress-development">WordPress CMS Development</option>
+                <option value="form-building">Interactive Form Building</option>
+                <option value="logo-branding">Logo & Branding Design</option>
+                <option value="website-maintenance">Website Maintenance</option>
+                <option value="ai-video-generation">AI Video & Media Creation</option>
+                <option value="presentations-assignments">Presentations & Academic Support</option>
+                <option value="other">Other / Custom Inquiries</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message">Project Brief / Message</label>
+              <textarea id="form-message" class="form-control" placeholder="Tell me about your project goals..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Muhammad Tahir. All Rights Reserved.</p>
+      <p style="font-size: 0.8rem; color: var(--text-muted);">Crafting products that blend code, design, and intelligence.</p>
+      <div class="footer-socials">
+        <a href="mailto:tahireee7@gmail.com" class="social-icon" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+        <a href="https://wa.me/923146813808" class="social-icon" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.012 2c-5.506 0-9.988 4.47-9.988 9.954 0 1.76.46 3.475 1.33 4.98L2 22l5.233-1.37a9.887 9.887 0 0 0 4.778 1.23h.005c5.503 0 9.987-4.47 9.987-9.955C22.003 6.47 17.518 2 12.012 2zm6.335 14.242c-.276.772-1.597 1.5-2.203 1.59-.553.08-1.272.145-2.05-.11a12.637 12.637 0 0 1-4.708-2.94 11.587 11.587 0 0 1-2.585-3.872c-.422-.724-.658-1.56-.565-2.433.093-.872.487-1.517.893-1.927.276-.28.59-.447.88-.447l.556.014c.245.006.462-.012.668.482.268.643.916 2.23 1.0 2.398.08.168.12.364.004.596-.11.23-.19.38-.344.56-.15.18-.323.364-.477.56-.168.21-.345.42-.15.756a8.204 8.204 0 0 0 1.543 1.912 7.747 7.747 0 0 0 2.228 1.372c.328.168.525.14.72-.084.197-.224.843-.98.107-1.26a4.8 4.8 0 0 0-.582-.252l-1.57-.756c-.244-.11-.475-.02-.643.21-.183.245-.733.91-.9 1.1-.168.19-.336.21-.664.042a9.585 9.585 0 0 1-2.47-1.527 10.457 10.457 0 0 1-1.706-2.122c-.196-.336-.02-.518.147-.714.152-.18.328-.392.493-.588.164-.196.22-.336.328-.56.11-.224.056-.42-.028-.588l-.756-1.82c-.22-.53-.448-.518-.642-.524h-.54c-.31 0-.812.112-1.238.577a3.528 3.528 0 0 0-1.099 2.583c0 1.63.854 3.208 2.05 4.8a15.225 15.225 0 0 0 6.096 5.385c.984.42 1.75.67 2.35.86 1 .3 1.9.26 2.62.15.8-.12 2.47-1.01 2.8-1.93z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammad-tahir-2041822b6" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Portfolio Modal Lightbox -->
+  <div class="portfolio-modal" id="portfolio-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close Lightbox">&times;</button>
+      <img src="" alt="Portfolio Large Preview" class="modal-img" id="modal-img">
+    </div>
+  </div>
+
+  <!-- Success Toast Popup -->
+  <div class="toast" id="toast">
+    <div style="font-weight: 600; font-family: var(--font-heading);">Message Sent!</div>
+    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Thank you Tahir. I'll get back to you shortly.</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
