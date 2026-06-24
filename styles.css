@@ -1735,29 +1735,7 @@ footer p {
     display: block !important;
     opacity: 1 !important;
     position: fixed !important;
-    bottom: 24px !important;
-    right: 24px !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    pointer-events: auto !important;
-    cursor: pointer;
-    animation: catMobileBob 0.8s ease-in-out infinite alternate !important;
+    pointer-events: none !important; /* Purely aesthetic, does not block taps on links/buttons */
   }
-  
-  .cursor-cat.running {
-    animation: catMobileJump 0.45s ease-in-out !important;
-  }
-}
-
-@keyframes catMobileBob {
-  from { transform: translateY(0px) scale(1); }
-  to   { transform: translateY(-4px) scale(1); }
-}
-
-@keyframes catMobileJump {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-15px) scale(1.15) rotate(-5deg); }
-  100% { transform: translateY(0) scale(1); }
 }
 

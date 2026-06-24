@@ -107,6 +107,29 @@ document.addEventListener('DOMContentLoaded', () => {
   let isRunning = false;
   let runTimeout = null;
 
+  // Mobile random wandering variables
+  let mobileTargetX = window.innerWidth / 2;
+  let mobileTargetY = window.innerHeight / 2;
+  let isWandering = false;
+  let wanderTimeout = null;
+
+  const chooseNewWanderTarget = () => {
+    if (window.innerWidth <= 1024) {
+      // Pick a random target within viewport, keeping margin from edges (e.g. 15%)
+      const marginX = window.innerWidth * 0.15;
+      const marginY = window.innerHeight * 0.15;
+      mobileTargetX = marginX + Math.random() * (window.innerWidth - 2 * marginX);
+      mobileTargetY = marginY + Math.random() * (window.innerHeight - 2 * marginY);
+      isWandering = true;
+      if (cursorCat) cursorCat.classList.add('running');
+    }
+  };
+
+  // Start wandering on mobile
+  if (window.innerWidth <= 1024) {
+    chooseNewWanderTarget();
+  }
+
   // Global move/touch updates
   const updateCoordinates = (clientX, clientY) => {
     mouseX = clientX;
@@ -141,30 +164,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Touch event listeners for mobile eye tracking
+  // Touch event listeners for mobile cat control
   document.addEventListener('touchmove', (e) => {
     if (e.touches && e.touches[0]) {
       updateCoordinates(e.touches[0].clientX, e.touches[0].clientY);
+      if (window.innerWidth <= 1024) {
+        mobileTargetX = e.touches[0].clientX;
+        mobileTargetY = e.touches[0].clientY;
+        isWandering = true;
+        if (cursorCat) cursorCat.classList.add('running');
+        clearTimeout(wanderTimeout);
+      }
     }
   }, { passive: true });
 
   document.addEventListener('touchstart', (e) => {
     if (e.touches && e.touches[0]) {
       updateCoordinates(e.touches[0].clientX, e.touches[0].clientY);
+      if (window.innerWidth <= 1024) {
+        mobileTargetX = e.touches[0].clientX;
+        mobileTargetY = e.touches[0].clientY;
+        isWandering = true;
+        if (cursorCat) cursorCat.classList.add('running');
+        clearTimeout(wanderTimeout);
+      }
     }
   }, { passive: true });
-
-  // Mobile tap animation
-  if (cursorCat) {
-    cursorCat.addEventListener('click', () => {
-      if (window.innerWidth <= 1024) {
-        cursorCat.classList.add('running');
-        setTimeout(() => {
-          cursorCat.classList.remove('running');
-        }, 400);
-      }
-    });
-  }
 
   function animateCat() {
     if (window.innerWidth > 1024) {
@@ -177,6 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cursorCat) {
         cursorCat.style.left = `${catX}px`;
         cursorCat.style.top = `${catY}px`;
+
+        // Face direction of movement
+        if (dx > 2) {
+          cursorCat.style.transform = 'translate(-50%, -50%) scaleX(1)';
+        } else if (dx < -2) {
+          cursorCat.style.transform = 'translate(-50%, -50%) scaleX(-1)';
+        }
 
         if (pupilLeft && pupilRight) {
           const dist = Math.sqrt(dx * dx + dy * dy);
@@ -196,28 +228,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     } else {
-      // Mobile eye tracking: compare touch location to static cat position
-      if (pupilLeft && pupilRight && cursorCat) {
-        const catRect = cursorCat.getBoundingClientRect();
-        const catCenterX = catRect.left + catRect.width / 2;
-        const catCenterY = catRect.top + catRect.height / 2;
-
-        const dx = mouseX - catCenterX;
-        const dy = mouseY - catCenterY;
+      // Mobile random wandering interpolation
+      if (isWandering) {
+        const dx = mobileTargetX - catX;
+        const dy = mobileTargetY - catY;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist > 10) {
-          const nx = (dx / dist) * 1.2;
-          const ny = (dy / dist) * 1.0;
+        // Face direction on mobile
+        if (dx > 2) {
+          cursorCat.style.transform = 'translate(-50%, -50%) scaleX(1)';
+        } else if (dx < -2) {
+          cursorCat.style.transform = 'translate(-50%, -50%) scaleX(-1)';
+        }
+
+        // Slower walk speed on mobile
+        const walkSpeed = 0.025;
+        catX += dx * walkSpeed;
+        catY += dy * walkSpeed;
+
+        if (cursorCat) {
+          cursorCat.style.left = `${catX}px`;
+          cursorCat.style.top = `${catY}px`;
+        }
+
+        // Keep pupils looking toward target on mobile
+        if (pupilLeft && pupilRight && dist > 5) {
+          const nx = (dx / dist) * 0.8;
+          const ny = (dy / dist) * 0.7;
           pupilLeft.setAttribute('cx', 22.5 + nx);
           pupilLeft.setAttribute('cy', 23.5 + ny);
           pupilRight.setAttribute('cx', 32.5 + nx);
           pupilRight.setAttribute('cy', 23.5 + ny);
-        } else {
-          pupilLeft.setAttribute('cx', 22.5);
-          pupilLeft.setAttribute('cy', 23.5);
-          pupilRight.setAttribute('cx', 32.5);
-          pupilRight.setAttribute('cy', 23.5);
+        }
+
+        // If target reached on mobile
+        if (dist < 10) {
+          isWandering = false;
+          if (cursorCat) cursorCat.classList.remove('running');
+          
+          // Wait random time (2 to 4 seconds) then wander again
+          clearTimeout(wanderTimeout);
+          wanderTimeout = setTimeout(() => {
+            chooseNewWanderTarget();
+          }, 2000 + Math.random() * 2000);
+        }
+      } else {
+        // If resting, look towards last touched position
+        if (pupilLeft && pupilRight && cursorCat) {
+          const dx = mouseX - catX;
+          const dy = mouseY - catY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist > 15) {
+            const nx = (dx / dist) * 1.2;
+            const ny = (dy / dist) * 1.0;
+            pupilLeft.setAttribute('cx', 22.5 + nx);
+            pupilLeft.setAttribute('cy', 23.5 + ny);
+            pupilRight.setAttribute('cx', 32.5 + nx);
+            pupilRight.setAttribute('cy', 23.5 + ny);
+          } else {
+            pupilLeft.setAttribute('cx', 22.5);
+            pupilLeft.setAttribute('cy', 23.5);
+            pupilRight.setAttribute('cx', 32.5);
+            pupilRight.setAttribute('cy', 23.5);
+          }
         }
       }
     }
