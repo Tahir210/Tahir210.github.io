@@ -86,34 +86,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const pupilLeft = document.getElementById('cat-pupil-left');
   const pupilRight = document.getElementById('cat-pupil-right');
 
+  // Initialize display states
   if (window.innerWidth > 1024) {
-    cursorGlow.style.display = 'block';
+    if (cursorGlow) cursorGlow.style.display = 'block';
     if (cursorCat) cursorCat.style.display = 'block';
+  } else {
+    if (cursorGlow) cursorGlow.style.display = 'none';
+    if (cursorCat) {
+      cursorCat.style.display = 'block';
+      cursorCat.style.opacity = '1';
+    }
+  }
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let catX = mouseX;
-    let catY = mouseY;
-    const speed = 0.07;
-    let firstMove = true;
-    let isRunning = false;
-    let runTimeout = null;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let catX = mouseX;
+  let catY = mouseY;
+  const speed = 0.07;
+  let firstMove = true;
+  let isRunning = false;
+  let runTimeout = null;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+  // Global move/touch updates
+  const updateCoordinates = (clientX, clientY) => {
+    mouseX = clientX;
+    mouseY = clientY;
 
-      cursorGlow.style.left = `${mouseX}px`;
-      cursorGlow.style.top = `${mouseY}px`;
+    if (firstMove) {
+      catX = mouseX;
+      catY = mouseY;
+      firstMove = false;
+      if (cursorCat) cursorCat.style.opacity = '1';
+    }
+  };
 
-      if (firstMove) {
-        catX = mouseX;
-        catY = mouseY;
-        firstMove = false;
-        if (cursorCat) cursorCat.style.opacity = '1';
-      }
+  document.addEventListener('mousemove', (e) => {
+    updateCoordinates(e.clientX, e.clientY);
 
-      // Add running animation class when mouse moves fast
+    if (cursorGlow && window.innerWidth > 1024) {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    }
+
+    if (window.innerWidth > 1024) {
       if (!isRunning) {
         isRunning = true;
         if (cursorCat) cursorCat.classList.add('running');
@@ -123,9 +138,36 @@ document.addEventListener('DOMContentLoaded', () => {
         isRunning = false;
         if (cursorCat) cursorCat.classList.remove('running');
       }, 150);
-    });
+    }
+  });
 
-    function animateCat() {
+  // Touch event listeners for mobile eye tracking
+  document.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      updateCoordinates(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      updateCoordinates(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  // Mobile tap animation
+  if (cursorCat) {
+    cursorCat.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        cursorCat.classList.add('running');
+        setTimeout(() => {
+          cursorCat.classList.remove('running');
+        }, 400);
+      }
+    });
+  }
+
+  function animateCat() {
+    if (window.innerWidth > 1024) {
       const dx = mouseX - catX;
       const dy = mouseY - catY;
 
@@ -133,23 +175,19 @@ document.addEventListener('DOMContentLoaded', () => {
       catY += dy * speed;
 
       if (cursorCat) {
-        // Center the cat on its position (SVG is 54x54, so offset by -27 via CSS translate(-50%,-50%))
         cursorCat.style.left = `${catX}px`;
         cursorCat.style.top = `${catY}px`;
 
-        // Animate pupils to look toward where the cat is going (toward mouse)
         if (pupilLeft && pupilRight) {
-          // Direction vector from cat to mouse (normalized, small range for subtle effect)
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist > 5) {
-            const nx = (dx / dist) * 1.2; // max 1.2px shift
+            const nx = (dx / dist) * 1.2;
             const ny = (dy / dist) * 1.0;
             pupilLeft.setAttribute('cx', 22.5 + nx);
             pupilLeft.setAttribute('cy', 23.5 + ny);
             pupilRight.setAttribute('cx', 32.5 + nx);
             pupilRight.setAttribute('cy', 23.5 + ny);
           } else {
-            // Reset pupils to center
             pupilLeft.setAttribute('cx', 22.5);
             pupilLeft.setAttribute('cy', 23.5);
             pupilRight.setAttribute('cx', 32.5);
@@ -157,12 +195,37 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       }
+    } else {
+      // Mobile eye tracking: compare touch location to static cat position
+      if (pupilLeft && pupilRight && cursorCat) {
+        const catRect = cursorCat.getBoundingClientRect();
+        const catCenterX = catRect.left + catRect.width / 2;
+        const catCenterY = catRect.top + catRect.height / 2;
 
-      requestAnimationFrame(animateCat);
+        const dx = mouseX - catCenterX;
+        const dy = mouseY - catCenterY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist > 10) {
+          const nx = (dx / dist) * 1.2;
+          const ny = (dy / dist) * 1.0;
+          pupilLeft.setAttribute('cx', 22.5 + nx);
+          pupilLeft.setAttribute('cy', 23.5 + ny);
+          pupilRight.setAttribute('cx', 32.5 + nx);
+          pupilRight.setAttribute('cy', 23.5 + ny);
+        } else {
+          pupilLeft.setAttribute('cx', 22.5);
+          pupilLeft.setAttribute('cy', 23.5);
+          pupilRight.setAttribute('cx', 32.5);
+          pupilRight.setAttribute('cy', 23.5);
+        }
+      }
     }
 
     requestAnimationFrame(animateCat);
   }
+
+  requestAnimationFrame(animateCat);
 
   // --- Interactive Tech Stack Details ---
   const stackItems = document.querySelectorAll('.stack-item');
