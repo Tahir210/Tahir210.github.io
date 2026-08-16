@@ -16,7 +16,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   fixOverflow();
-  window.addEventListener('resize', fixOverflow);
+  // --- Scroll Reveal Animations (Intersection Observer) ---
+  // Inject reveal classes dynamically to avoid bulk HTML modifications
+  document.querySelectorAll('section .section-header').forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.services-grid > .service-card').forEach((el, idx) => {
+    el.classList.add('reveal');
+    const delay = idx % 3;
+    if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
+  });
+  document.querySelectorAll('.portfolio-grid > .portfolio-card').forEach((el, idx) => {
+    el.classList.add('reveal');
+    const delay = idx % 3;
+    if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
+  });
+  document.querySelectorAll('.guarantees-grid > .guarantee-card').forEach((el, idx) => {
+    el.classList.add('reveal');
+    const delay = idx % 3;
+    if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
+  });
+  document.querySelectorAll('.timeline-item').forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.contact-details > .detail-item').forEach((el, idx) => {
+    el.classList.add('reveal');
+    const delay = idx % 2;
+    if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
+  });
+  document.querySelectorAll('.contact-info, .contact-form-panel').forEach((el, idx) => {
+    el.classList.add('reveal');
+    if (idx > 0) el.classList.add('reveal-delay-1');
+  });
+  document.querySelectorAll('.testimonials-grid > .testimonial-card').forEach((el, idx) => {
+    el.classList.add('reveal');
+    const delay = idx % 3;
+    if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
+  });
+  document.querySelectorAll('.stats-grid > .stat-card').forEach((el, idx) => {
+    el.classList.add('reveal');
+    const delay = idx % 4;
+    if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); // Trigger once
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+  revealElements.forEach(el => revealObserver.observe(el));
 
   // --- Header Scroll Effect & Navigation Highlight ---
   const header = document.getElementById('header');
@@ -80,8 +131,24 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeNav);
   });
 
-  // --- Background Hover Cursor Glow & SVG Cat Follower ---
+  // --- Background Hover Cursor Glow ---
   const cursorGlow = document.getElementById('cursor-glow');
+
+  if (cursorGlow) {
+    if (window.innerWidth > 1024) {
+      cursorGlow.style.display = 'block';
+    } else {
+      cursorGlow.style.display = 'none';
+    }
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    if (cursorGlow && window.innerWidth > 1024) {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    }
+  });
+  // --- Background Hover Cursor Glow & SVG Cat Follower ---
   const cursorCat = document.getElementById('cursor-cat');
   const pupilLeft = document.getElementById('cat-pupil-left');
   const pupilRight = document.getElementById('cat-pupil-right');
@@ -300,7 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   requestAnimationFrame(animateCat);
-
   // --- Interactive Tech Stack Details ---
   const stackItems = document.querySelectorAll('.stack-item');
   const detailsBox = document.getElementById('tech-details-box');
@@ -466,5 +532,315 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open WhatsApp in new tab after brief delay (so user sees toast)
     setTimeout(() => window.open(waUrl, '_blank'), 600);
   });
+
+  // --- Dynamic Stats Counter Animation ---
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const countSpeed = 80; // Speed factor (higher is slower)
+
+  const countUp = (el) => {
+    const target = +el.getAttribute('data-target');
+    const hasPercent = el.getAttribute('data-percent') === 'true';
+    let current = 0;
+    
+    // Clear initial state
+    el.innerText = '0';
+
+    const updateVal = () => {
+      const increment = target / countSpeed;
+      if (current < target) {
+        current += increment;
+        el.innerText = Math.ceil(current);
+        setTimeout(updateVal, 20);
+      } else {
+        el.innerText = target + (hasPercent ? '%' : '+');
+      }
+    };
+    updateVal();
+  };
+
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        countUp(entry.target);
+        observer.unobserve(entry.target); // Count once
+      }
+    });
+  }, { threshold: 0.3 });
+
+  statNumbers.forEach(stat => statsObserver.observe(stat));
+
+  // --- Submit Review Form Interaction ---
+  const writeReviewBtn = document.getElementById('write-review-btn');
+  const reviewPanel = document.getElementById('review-form-panel');
+  const reviewForm = document.getElementById('review-submit-form');
+  const testimonialsGrid = document.querySelector('.testimonials-grid');
+
+  if (writeReviewBtn && reviewPanel) {
+    writeReviewBtn.addEventListener('click', () => {
+      if (reviewPanel.style.display === 'none' || !reviewPanel.style.display) {
+        reviewPanel.style.display = 'block';
+        setTimeout(() => {
+          reviewPanel.style.transform = 'translateY(0)';
+          reviewPanel.style.opacity = '1';
+        }, 10);
+        writeReviewBtn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          Close Review Form
+        `;
+      } else {
+        reviewPanel.style.transform = 'translateY(20px)';
+        reviewPanel.style.opacity = '0';
+        setTimeout(() => {
+          reviewPanel.style.display = 'none';
+        }, 400);
+        writeReviewBtn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          Write a Review
+        `;
+      }
+    });
+  }
+
+  const appendReviewToGrid = (review) => {
+    const starString = '⭐'.repeat(review.rating);
+    const cardHtml = `
+      <div class="testimonial-card glass-panel reveal active">
+        <div class="stars">${starString}</div>
+        <p class="testimonial-text">${review.text}</p>
+        <div class="client-info">
+          <h4 class="client-name">${review.name}</h4>
+          <span class="client-role">${review.role}</span>
+        </div>
+      </div>
+    `;
+    if (testimonialsGrid) {
+      testimonialsGrid.insertAdjacentHTML('beforeend', cardHtml);
+    }
+  };
+
+  // --- Admin Mode and Review Management ---
+  let isAdmin = sessionStorage.getItem('isAdmin') === 'true';
+
+  const checkAdminStatus = () => {
+    if (isAdmin) {
+      document.body.classList.add('admin-mode');
+    } else {
+      document.body.classList.remove('admin-mode');
+    }
+    updateDeleteButtons();
+  };
+
+  const showToast = (title, msg) => {
+    const toast = document.getElementById('toast');
+    if (toast) {
+      toast.querySelector('div:first-child').innerText = title;
+      toast.querySelector('div:last-child').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+  };
+
+  // Toggle Admin Mode by double clicking the TAD Crown Logo
+  const logoImg = document.querySelector('.logo');
+  if (logoImg) {
+    logoImg.addEventListener('dblclick', () => {
+      if (isAdmin) {
+        isAdmin = false;
+        sessionStorage.removeItem('isAdmin');
+        checkAdminStatus();
+        showToast("Admin Mode Deactivated", "Review delete options are now locked.");
+      } else {
+        const pass = prompt("Enter admin passcode to manage reviews:");
+        if (pass === 'tahri@tt41') {
+          isAdmin = true;
+          sessionStorage.setItem('isAdmin', 'true');
+          checkAdminStatus();
+          showToast("Admin Mode Activated", "You can now delete reviews using the trash icon.");
+        } else if (pass !== null) {
+          alert("Incorrect passcode!");
+        }
+      }
+    });
+  }
+
+  const getDeletedStaticIndexes = () => {
+    const data = localStorage.getItem('deleted-static-reviews');
+    return data ? JSON.parse(data) : [];
+  };
+
+  const deleteReview = (card) => {
+    const index = card.getAttribute('data-index');
+    if (index !== null) {
+      // Deleting a static review
+      const idx = parseInt(index);
+      const deletedList = getDeletedStaticIndexes();
+      deletedList.push(idx);
+      localStorage.setItem('deleted-static-reviews', JSON.stringify(deletedList));
+    } else {
+      // Deleting a user-submitted review
+      const name = card.querySelector('.client-name').innerText.trim();
+      const text = card.querySelector('.testimonial-text').innerText.trim();
+      const saved = localStorage.getItem('client-reviews');
+      if (saved) {
+        let reviews = JSON.parse(saved);
+        reviews = reviews.filter(r => !(r.name === name && r.text === text));
+        localStorage.setItem('client-reviews', JSON.stringify(reviews));
+      }
+    }
+
+    card.remove();
+    showToast("Review Deleted", "The review was permanently deleted from the layout.");
+    updateReviewVisibility();
+  };
+
+  const updateDeleteButtons = () => {
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+      if (!card.querySelector('.delete-review-btn')) {
+        const btn = document.createElement('button');
+        btn.className = 'delete-review-btn';
+        btn.innerHTML = '🗑️';
+        btn.title = 'Delete Review';
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (confirm("Are you sure you want to delete this review?")) {
+            deleteReview(card);
+          }
+        });
+        card.appendChild(btn);
+      }
+    });
+  };
+
+  const updateReviewVisibility = () => {
+    const cards = document.querySelectorAll('.testimonial-card');
+    const limit = 3;
+    const moreBtnContainer = document.getElementById('more-reviews-btn-container');
+    const moreBtn = document.getElementById('more-reviews-btn');
+
+    if (cards.length > limit) {
+      if (moreBtnContainer) moreBtnContainer.style.display = 'block';
+      const isExpanded = moreBtn ? moreBtn.getAttribute('data-expanded') === 'true' : false;
+
+      cards.forEach((card, idx) => {
+        if (idx >= limit) {
+          card.style.display = isExpanded ? 'flex' : 'none';
+        } else {
+          card.style.display = 'flex';
+        }
+      });
+    } else {
+      if (moreBtnContainer) moreBtnContainer.style.display = 'none';
+      cards.forEach(card => card.style.display = 'flex');
+    }
+  };
+
+  // View More / View Less Toggle Button
+  const moreReviewsBtn = document.getElementById('more-reviews-btn');
+  if (moreReviewsBtn) {
+    moreReviewsBtn.addEventListener('click', () => {
+      const isExpanded = moreReviewsBtn.getAttribute('data-expanded') === 'true';
+      if (isExpanded) {
+        moreReviewsBtn.setAttribute('data-expanded', 'false');
+        moreReviewsBtn.innerText = 'View More Reviews';
+      } else {
+        moreReviewsBtn.setAttribute('data-expanded', 'true');
+        moreReviewsBtn.innerText = 'View Less Reviews';
+      }
+      updateReviewVisibility();
+    });
+  }
+
+  const loadSavedReviews = () => {
+    // 1. Hide/remove deleted static reviews
+    const deletedList = getDeletedStaticIndexes();
+    document.querySelectorAll('.testimonial-card[data-index]').forEach(card => {
+      const idx = parseInt(card.getAttribute('data-index'));
+      if (deletedList.includes(idx)) {
+        card.remove();
+      }
+    });
+
+    // 2. Load custom user reviews
+    const saved = localStorage.getItem('client-reviews');
+    if (saved) {
+      const reviews = JSON.parse(saved);
+      reviews.forEach(review => {
+        appendReviewToGrid(review);
+      });
+    }
+
+    // 3. Update visibility and admin options
+    updateDeleteButtons();
+    updateReviewVisibility();
+    checkAdminStatus();
+  };
+
+  if (reviewForm) {
+    reviewForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('review-name').value.trim();
+      const role = document.getElementById('review-role').value.trim();
+      const rating = parseInt(document.getElementById('review-stars').value);
+      const text = document.getElementById('review-text').value.trim();
+
+      const reviewData = { name, role, rating, text };
+
+      // Append to UI
+      appendReviewToGrid(reviewData);
+
+      // Save to localStorage
+      const saved = localStorage.getItem('client-reviews');
+      const reviews = saved ? JSON.parse(saved) : [];
+      reviews.push(reviewData);
+      localStorage.setItem('client-reviews', JSON.stringify(reviews));
+
+      // Asynchronously send to FormSubmit (forwarding to Gmail)
+      const formData = new FormData(reviewForm);
+      fetch("https://formsubmit.co/ajax/tahireee9@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Email sent successfully: ", data);
+      })
+      .catch(error => {
+        console.error("Error sending review email: ", error);
+      });
+
+      // Update lists layout & options
+      updateDeleteButtons();
+      updateReviewVisibility();
+      checkAdminStatus();
+
+      // Show success toast
+      showToast("Review Submitted!", "Thank you! Your review is saved and sent to Tahir's email.");
+
+      // Close Form Panel
+      reviewForm.reset();
+      if (reviewPanel) {
+        reviewPanel.style.transform = 'translateY(20px)';
+        reviewPanel.style.opacity = '0';
+        setTimeout(() => {
+          reviewPanel.style.display = 'none';
+        }, 400);
+      }
+      if (writeReviewBtn) {
+        writeReviewBtn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          Write a Review
+        `;
+      }
+    });
+  }
+
+
+
+  // Run initial loading logic
+  loadSavedReviews();
 });
 

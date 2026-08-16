@@ -61,6 +61,7 @@
     </svg>
   </div>
 
+
   <!-- Premium Header Navbar -->
   <header id="header">
     <div class="nav-container">
@@ -97,22 +98,22 @@
     <div class="container">
       <div class="hero-wrapper">
         <div class="hero-content">
-          <div class="hero-badge">
+          <div class="hero-badge reveal">
             <span></span> Available for Freelance Work
           </div>
-          <h1 class="hero-title text-gradient">
+          <h1 class="hero-title text-gradient reveal reveal-delay-1">
             High-Performance Code <span>& Visual Branding</span>
           </h1>
-          <p class="hero-subtitle">
+          <p class="hero-subtitle reveal reveal-delay-2">
             Hi, I'm <strong>Muhammad Tahir</strong>. I build premium web applications, design corporate brand identities, create automated form systems, and edit media to scale your digital presence.
           </p>
-          <div class="hero-ctas">
+          <div class="hero-ctas reveal reveal-delay-3">
             <a href="#contact" class="btn btn-primary">Get a Quote</a>
             <a href="#portfolio" class="btn btn-secondary">View Work</a>
           </div>
         </div>
         
-        <div class="hero-visual">
+        <div class="hero-visual reveal reveal-delay-2">
           <!-- Profile Photo inside glowing circle -->
           <div class="profile-circle-wrap">
             <div class="profile-circle-gap">
@@ -132,7 +133,7 @@
   <section id="tech-stack" class="section" style="padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.005);">
     <div class="container">
       <div class="stack-grid">
-        <div class="stack-intro">
+        <div class="stack-intro reveal">
           <span class="section-tag" style="text-align: left; margin-bottom: 8px;">My Tooling</span>
           <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">The Technologies I Use</h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">Hover over my stack tools to see visual categories, or click to view execution details.</p>
@@ -144,7 +145,7 @@
           </div>
         </div>
         
-        <div class="stack-items">
+        <div class="stack-items reveal reveal-delay-2">
           <!-- Figma -->
           <div class="stack-item glass-panel" data-tech="figma">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7c0 1.48.65 2.81 1.68 3.73A3.737 3.737 0 007 14.5c0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.48-.65-2.81-1.68-3.73A3.737 3.737 0 0017 7c0-2.76-2.24-5-5-5zm0 15a2.5 2.5 0 010-5 2.5 2.5 0 010 5zm0-7.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -180,6 +181,29 @@
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365.347 0 .687-.02 1.025-.053-.12-.35-.224-.716-.31-1.077l-1.543-4.526a12.936 12.936 0 0 0 .986-2.549zm-8.874 1.701a7.87 7.87 0 0 0 2.27 4.298l3.125-9.061C8.167 9.873 7.84 9.1 7.84 9.1c-.396-.036-.826-.036-.826-.036l-.036.54c.33.036.43.324.43.324.164.43.328.97.43 1.348l1.455 4.26-1.92 5.568A7.857 7.857 0 0 1 3.284 14.49zm12.353-.611c.907-2.698 1.543-5.029 1.543-6.574 0-1.008-.252-1.728-.612-2.268a2.915 2.915 0 0 0-2.304-1.224c-.972 0-1.728.576-1.728.576s.18-.036.216-.036c.9 0 1.62.9 1.62 1.944 0 .972-.54 2.196-.936 3.348l-.756 2.268 1.488 4.34a12.875 12.875 0 0 0 2.469-8.648c0-.75-.12-1.464-.324-2.138L12.368 20.65a7.878 7.878 0 0 0 6.136-6.4c0-.071-.004-.141-.01-.211l-2.857-.36zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
             <span>WordPress</span>
           </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Dynamic Stats Section -->
+  <section id="stats" class="section" style="padding: 60px 0; background: rgba(139, 92, 246, 0.005); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card glass-panel text-center">
+          <div class="stat-number" data-target="45">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card glass-panel text-center">
+          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-card glass-panel text-center">
+          <div class="stat-number" data-target="100" data-percent="true">0</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+        <div class="stat-card glass-panel text-center">
+          <div class="stat-number" data-target="24">0</div>
+          <div class="stat-label">Support Hours Active</div>
         </div>
       </div>
     </div>
@@ -584,6 +608,100 @@
             <p class="portfolio-card-desc">Detailed on-page SEO structural configurations, semantic header updates, page audits, and Google Console indexing logs.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Client Reviews</span>
+        <h2 class="section-title">What Clients Say About Me</h2>
+        <p style="color: var(--text-muted);">Real reviews from global clients who trusted me with their mobile app development, web design, and graphic projects.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card glass-panel" data-index="0">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">Tahir delivered our Flutter app on time and the UI was exactly what we designed in Figma. Truly outstanding work and absolute reliability!</p>
+          <div class="client-info">
+            <h4 class="client-name">Sarah K.</h4>
+            <span class="client-role">SaaS Founder, USA</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-panel" data-index="1">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">Excellent communication and high-speed delivery. The WordPress e-commerce store is running perfectly and optimized for SEO. Highly recommended!</p>
+          <div class="client-info">
+            <h4 class="client-name">Ahmed R.</h4>
+            <span class="client-role">E-commerce Owner, Dubai</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-panel" data-index="2">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">Very professional academic writer. Delivered a plagiarism-free research proposal within a short deadline. Absolute lifesaver for our university team!</p>
+          <div class="client-info">
+            <h4 class="client-name">John D.</h4>
+            <span class="client-role">Project Lead, UK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- View More Reviews Button -->
+      <div id="more-reviews-btn-container" class="text-center" style="margin-top: 24px; text-align: center; display: none;">
+        <button id="more-reviews-btn" class="btn btn-secondary" style="padding: 8px 24px; font-size: 0.85rem;">
+          View More Reviews
+        </button>
+      </div>
+
+      <!-- Testimonial Submit Form Trigger & Form -->
+      <div class="text-center" style="margin-top: 48px; text-align: center;">
+        <button id="write-review-btn" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          Write a Review
+        </button>
+      </div>
+
+      <!-- Testimonial Form Panel (Hidden by default) -->
+      <div id="review-form-panel" class="glass-panel" style="max-width: 600px; margin: 32px auto 0 auto; padding: 32px; display: none; transform: translateY(20px); opacity: 0; transition: all var(--transition-normal);">
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; text-align: center; color: var(--primary);">Submit Your Review</h3>
+        
+        <!-- FormSubmit Endpoint configuration to send directly to Gmail -->
+        <form id="review-submit-form" action="https://formsubmit.co/tahireee9@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="⭐ New Client Review Received!">
+          <input type="hidden" name="_captcha" value="false">
+          
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="review-name" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">Your Name</label>
+            <input type="text" id="review-name" name="Client Name" class="form-control" placeholder="e.g. Sarah K." required>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="review-role" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">Your Role / Company</label>
+            <input type="text" id="review-role" name="Client Role" class="form-control" placeholder="e.g. SaaS Founder, USA" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="review-stars" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">Rating (1 to 5 Stars)</label>
+            <select id="review-stars" name="Rating Stars" class="form-control" required style="background: var(--bg-secondary); color: var(--text-main);">
+              <option value="5" selected>⭐⭐⭐⭐⭐ (5 Stars)</option>
+              <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+              <option value="3">⭐⭐⭐ (3 Stars)</option>
+              <option value="2">⭐⭐ (2 Stars)</option>
+              <option value="1">⭐ (1 Star)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label for="review-text" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">Review Text</label>
+            <textarea id="review-text" name="Review Text" class="form-control" placeholder="Describe your experience working with me..." required style="min-height: 100px; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">Submit Review</button>
+        </form>
       </div>
     </div>
   </section>
