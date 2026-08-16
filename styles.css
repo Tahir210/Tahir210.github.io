@@ -7,6 +7,7 @@
 
 /* --- Custom Variables & Reset --- */
 :root {
+  color-scheme: light;
   --bg-primary: #f3f4f6;     /* Light gray background (same as cv) */
   --bg-secondary: #ffffff;   /* Pure white background */
   --bg-card: rgba(255, 255, 255, 0.7); /* White glass card */
