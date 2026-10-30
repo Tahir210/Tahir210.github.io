@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `*Message:*\n${message}`;
 
     // Encode and open WhatsApp
-    const waNumber = '923146813808'; // +92 314 6813808
+    const waNumber = '923146813808'; // +92 326 1055329
     const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
 
     // Show success toast
